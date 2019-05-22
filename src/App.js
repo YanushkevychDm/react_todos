@@ -28,6 +28,8 @@ class App extends Component {
     this.setState({todos: [] });
   };
 
+
+
   onAddItem = () => {
     this.setState(state => {
       const todos = state.todos.concat(state.value);
@@ -41,12 +43,17 @@ class App extends Component {
   };
 
 
+  deleteTaskHandler = ( todoIndex ) => {
+    const tasks = [...this.state.todos];
+    tasks.splice( todoIndex, 1 );
+    this.setState( { todos: tasks } );
+  }
 
   render() {
     return (
       <div className="app">
         <AddTodos />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} clearAll={this.onClearAll} delete={this.deleteTaskHandler} />
         <div className="test-wrap">
           <button onClick={this.onAddItem} className="test-btn">test test</button>
           <button onClick={this.onClearAll} className="test-btn">Очистить</button>
