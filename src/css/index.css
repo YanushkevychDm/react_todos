@@ -1,16 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Eagle+Lake&display=swap');
+
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+ul {
+  list-style: none;
+}
+
+body {
+  background: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(185, 158, 87); 
+  font-family: 'Eagle Lake', cursive;
+}
+
 .container {
+  /* background-color: rgba(96, 116, 78, 1); */
+  background-color: rgba(73, 70, 47, 1);
+  border-radius: 20px;
   display:  flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 500px;
-  margin: 0 auto;
+  margin: 50px auto;
+  padding: 20px;
 }
 
 .list {
@@ -18,7 +38,30 @@
   flex-direction: column;
   margin: 10px auto 0;
   width: 100%;
-  /* align-items: center; */
+  /* padding-left: 40px; */
+  /* font-weight: bold; */
+}
+
+.list-item {
+  padding: 7px 0;
+}
+
+.list-item:not(:last-child) {
+  border-bottom: 1px solid rgba(96, 116, 78, 1);
+}
+
+.task-wrap {
+  background-color: rgba(73, 70, 47, 1);
+  border: 3px solid rgba(96, 116, 78, 1); 
+  /* background-color: rgba(96, 116, 78, 1); */
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+h1 {
+  margin-bottom: 20px;
+  
 }
 
 h2 {
@@ -27,5 +70,28 @@ h2 {
 }
 
 input[type='text'] {
-  width: 350px;
+  background-color:  rgb(243, 231, 200); 
+  font-family: 'Eagle Lake', cursive;
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 5%;
+  color: rgba(34, 34, 18, 1);
+  padding: 2px 7px;
+  border: none;
+}
+
+.btn-add {
+  font-family: 'Eagle Lake', cursive;
+  height: 30px;
+  width: 15%;
+  border-radius: 10px;
+  background-color: rgba(176, 150, 111, 1);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #286090;
 }
