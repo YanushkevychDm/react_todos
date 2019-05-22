@@ -6,12 +6,13 @@ class App extends Component {
 
   state = {
     todos: [
-      { name: 'Создать список заданий', id:'afaefg5'},
-      { name: 'Вывести список', id:'wgjlmev56'},
-      { name: 'Удалить задание из списка', id:'mbrbj52'},
-      { name: 'Создать поле ввода', id:'welgmke526'},
-      { name: 'Добавить задание из поля ввода', id:'legiehg52'},
-    ]
+      'Создать список заданий',
+      'Вывести список',
+      'Удалить задание из списка',
+      'Создать поле ввода', 
+      'Добавить задание из поля ввода',
+    ],
+    inputText: '',
   }
 
   deleteHandler = (index) => {
@@ -20,13 +21,32 @@ class App extends Component {
     this.setState({ todos: todos });
   }
 
+  onChangeHandler = (event) => {
+    this.setState({ inputText: event.target.value });
+  }
+
+  addNewHandler = () => {
+    const todos = [...this.state.todos];
+    todos.push(this.state.inputText);
+    this.setState({ todos: todos, inputText: '' });
+
+  }
+
   render() {
     return (
-      <ol className='list'>
-        { this.state.todos.map((todo, index) => 
-          <li className='list-item' key={todo.id} onClick={() => this.deleteHandler(index)} >{todo.name}</li>
-        ) } 
-      </ol>
+      <div className='container'>
+        <h2>Добавить новое задание</h2>
+        <div>
+          <input type="text" onChange={this.onChangeHandler} placeholder='Новое задание' value={this.state.inputText}/>
+          <button onClick={this.addNewHandler}>Добавить</button>
+        </div>
+        <h2>Список дел</h2>
+        <ol className='list'>
+          { this.state.todos.map((todo, index) => 
+            <li className='list-item' key={todo} onClick={() => this.deleteHandler(index)} >{todo}</li>
+          ) } 
+        </ol>
+      </div>
     );
   }
 }
