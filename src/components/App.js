@@ -37,13 +37,16 @@ class App extends Component {
           <h2>Add New Task</h2>
           <div>
             <input type="text" onChange={this.onChangeHandler} placeholder='New Task' value={this.state.inputText}/>
-            <button className='btn-add' onClick={this.addNewHandler}>Add</button>
+            <button className='btn' onClick={this.addNewHandler}>Add</button>
           </div>
         </div>
         <h2>Task list:</h2>
         <ul className='list'>
           { this.state.todos.map((todo, index) => 
-            <li className='list-item' key={todo} onClick={() => this.deleteHandler(index)} >{index+1}. {todo}</li>
+            <li className='list-item' key={todo}>
+              <span className='item'>{index+1}. {todo}</span> 
+              <button className='btn' onClick={() => this.deleteHandler(index)}>Delete</button>
+            </li>
           ) } 
         </ul>
       </div>

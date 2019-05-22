@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Eagle+Lake&display=swap');
 
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,7 +11,8 @@ ul {
 }
 
 body {
-  background: url('../img/background.jpg');
+  background-image: url('../img/background.jpg');
+  background-color: rgba(73, 70, 47, 1);
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(185, 158, 87); 
@@ -21,7 +20,6 @@ body {
 }
 
 .container {
-  /* background-color: rgba(96, 116, 78, 1); */
   background-color: rgba(73, 70, 47, 1);
   border-radius: 20px;
   display:  flex;
@@ -38,22 +36,22 @@ body {
   flex-direction: column;
   margin: 10px auto 0;
   width: 100%;
-  /* padding-left: 40px; */
-  /* font-weight: bold; */
 }
 
 .list-item {
   padding: 7px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-.list-item:not(:last-child) {
-  border-bottom: 1px solid rgba(96, 116, 78, 1);
+.item {
+  display: inline-block;
+  max-width: 375px;
 }
 
 .task-wrap {
   background-color: rgba(73, 70, 47, 1);
   border: 3px solid rgba(96, 116, 78, 1); 
-  /* background-color: rgba(96, 116, 78, 1); */
   padding: 20px;
   border-radius: 20px;
   width: 100%;
@@ -61,7 +59,6 @@ body {
 
 h1 {
   margin-bottom: 20px;
-  
 }
 
 h2 {
@@ -72,7 +69,7 @@ h2 {
 input[type='text'] {
   background-color:  rgb(243, 231, 200); 
   font-family: 'Eagle Lake', cursive;
-  width: 80%;
+  width: 75%;
   height: 30px;
   border-radius: 5px;
   margin-right: 5%;
@@ -81,10 +78,10 @@ input[type='text'] {
   border: none;
 }
 
-.btn-add {
+.btn {
   font-family: 'Eagle Lake', cursive;
   height: 30px;
-  width: 15%;
+  width: 70px;
   border-radius: 10px;
   background-color: rgba(176, 150, 111, 1);
   color: #fff;
@@ -92,6 +89,6 @@ input[type='text'] {
   cursor: pointer;
 }
 
-.btn-add:hover {
+.btn:hover {
   background-color: #286090;
 }
