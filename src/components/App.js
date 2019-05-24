@@ -29,22 +29,33 @@ class App extends Component {
     this.setState({ todos: todos, inputText: '' });
   }
 
+  onClickHandler = (index) => {
+    console.log(`Task #${index + 1} was clicked`);
+  }
+
+
   render() {
+
     return (
-      <div className='container'>
+      <div className='main-container'>
         <h1>Hobbit Todos</h1>
         <div className="task-wrap">
           <h2>Add New Task</h2>
-          <div>
+          <div className='input-wrap'>
             <input type="text" onChange={this.onChangeHandler} placeholder='New Task' value={this.state.inputText}/>
             <button className='btn' onClick={this.addNewHandler}>Add</button>
           </div>
         </div>
-        <h2>Task list:</h2>
+        <h2 className='task-list'> Task list: </h2>
         <ul className='list'>
+          <li className='list-item'> <span>Done</span>  <span className='item'>Task</span> <span>Delete</span> </li>
           { this.state.todos.map((todo, index) => 
-            <li className='list-item' key={todo}>
-              <span className='item'>{index+1}. {todo}</span> 
+            <li className='list-item' key={todo}  onClick={() => this.onClickHandler(index)  }>
+              <label className="container">
+                <input type="checkbox" />
+                <span className="checkmark"></span>
+                <span className='text'>{index+1}. {todo} </span> 
+              </label> 
               <button className='btn' onClick={() => this.deleteHandler(index)}>Delete</button>
             </li>
           ) } 
@@ -55,3 +66,9 @@ class App extends Component {
 }
 
 export default App;
+
+
+{/* <div className='checkbox-wrap'>
+<input type="checkbox" name="" id=""  className='done'/>
+<span className='item'>{index+1}. {todo}</span> 
+</div> */}
