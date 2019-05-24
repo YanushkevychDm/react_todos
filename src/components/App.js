@@ -24,15 +24,22 @@ class App extends Component {
   }
 
   addNewHandler = () => {
-    const todos = [...this.state.todos];
-    todos.push(this.state.inputText);
-    this.setState({ todos: todos, inputText: '' });
+    if(this.state.inputText) {
+      const todos = [...this.state.todos];
+      todos.push(this.state.inputText);
+      this.setState({ todos: todos, inputText: '' });
+    }
   }
 
   onClickHandler = (index) => {
     console.log(`Task #${index + 1} was clicked`);
   }
 
+  onKeyPress = (event) => {
+    if(event.key === 'Enter'){
+      this.addNewHandler();
+    }
+  }
 
   render() {
 
@@ -42,7 +49,7 @@ class App extends Component {
         <div className="task-wrap">
           <h2>Add New Task</h2>
           <div className='input-wrap'>
-            <input type="text" onChange={this.onChangeHandler} placeholder='New Task' value={this.state.inputText}/>
+            <input type="text" onChange={this.onChangeHandler} onKeyPress={this.onKeyPress} placeholder='New Task' value={this.state.inputText}/>
             <button className='btn' onClick={this.addNewHandler}>Add</button>
           </div>
         </div>
@@ -66,9 +73,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-{/* <div className='checkbox-wrap'>
-<input type="checkbox" name="" id=""  className='done'/>
-<span className='item'>{index+1}. {todo}</span> 
-</div> */}
