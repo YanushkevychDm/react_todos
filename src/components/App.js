@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import AddTodos from './addTodos';
-// import TodoList from './todoList';
+import TodoList from './todoList';
 
 class App extends Component {
   state = {
@@ -49,16 +49,10 @@ class App extends Component {
         <h2 className='task-list'> Task list: </h2>
         <ul className='list'>
           <li className='list-item'> <span>Done</span>  <span className='item'>Task</span> <span>Delete</span> </li>
-          { this.state.todos.map((todo, index) => 
-            <li className='list-item' key={todo}>
-              <label className="container">
-                <input type="checkbox" />
-                <span className="checkmark"></span>
-                <span className='text'>{index+1}. {todo} </span> 
-              </label> 
-              <button className='btn' onClick={() => this.deleteHandler(index)}>Delete</button>
-            </li>
-          ) } 
+          <TodoList 
+            todos={this.state.todos}  
+            delete={this.deleteHandler}
+          />
         </ul>
       </div>
     );
