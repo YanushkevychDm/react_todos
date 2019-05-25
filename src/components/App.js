@@ -37,23 +37,16 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className='main-container'>
         <AddTodos 
-          onChange={this.onChangeHandler}
-          addNew={this.addNewHandler}
-          enter={this.onKeyPress}
-          input={this.state.inputText} />
-
-        <h2 className='task-list'> Task list: </h2>
-        <ul className='list'>
-          <li className='list-item'> <span>Done</span>  <span className='item'>Task</span> <span>Delete</span> </li>
-          <TodoList 
-            todos={this.state.todos}  
-            delete={this.deleteHandler}
-          />
-        </ul>
+          onChange = {this.onChangeHandler}
+          addNew   = {this.addNewHandler}
+          enter    = {this.onKeyPress}
+          input    = {this.state.inputText} />
+        <TodoList 
+          todos  = {this.state.todos}  
+          delete = {this.deleteHandler}  />
       </div>
     );
   }
