@@ -10,11 +10,17 @@ ul {
   list-style: none;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-image: url('../img/background.jpg');
   background-color: rgba(73, 70, 47, 1);
   background-repeat: no-repeat;
   background-size: cover;
+  /* background-size: 100% 100%; */
   color: rgb(185, 158, 87); 
   font-family: 'Eagle Lake', cursive;
 }
@@ -103,6 +109,7 @@ input[type='text'] {
   width: 330px;
   height: 30px;
   border-radius: 5px;
+  margin-right: 20px;
  
   color: rgba(34, 34, 18, 1);
   padding: 2px 7px;
@@ -113,7 +120,7 @@ input[type='text'] {
   font-family: 'Eagle Lake', cursive;
   height: 30px;
   width: 70px;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: rgba(176, 150, 111, 1);
   color: #fff;
   border: none;
